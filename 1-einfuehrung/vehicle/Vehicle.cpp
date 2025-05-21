@@ -24,6 +24,7 @@ double Vehicle::getTotalFuelConsumption() {
 }
 
 bool Vehicle::drive(int km) {
+    if (km < 0) return false;
     if (fuelRemaining > (km / 100.0) * fuelConsumption) {
         fuelRemaining -= (km / 100.0) * fuelConsumption;
         totalFuelConsumption += (km / 100.0) * fuelConsumption;
