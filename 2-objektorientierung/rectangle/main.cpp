@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Rectangle.h"
+#include "Rectangle.hpp"
 
 int main() {
     Rectangle *myRect = new Rectangle(10, 20);
