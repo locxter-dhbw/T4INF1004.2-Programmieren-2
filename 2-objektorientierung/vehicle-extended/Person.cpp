@@ -23,6 +23,7 @@ void Person::setNationality(Nationality nationality) {
 
 // Methods
 void Person::greet(Person greetedPerson) {
+    std::cout << name << ": ";
     switch (greetedPerson.nationality) {
         case Nationality::EN:
             std::cout << "Hello ";
