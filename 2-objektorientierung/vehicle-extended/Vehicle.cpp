@@ -2,7 +2,7 @@
 
 // Constructors
 Vehicle::Vehicle(int seatCount) {
-    if (seatCount < 1) this->seatCount = 1;
+    if (seatCount < 1) seatCount = 1;
     this->seatCount = seatCount;
 }
 
