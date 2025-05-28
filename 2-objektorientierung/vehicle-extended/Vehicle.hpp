@@ -1,16 +1,23 @@
-#pragma once
+#ifndef VEHICLE_H
+#define VEHICLE_H
+
 #include <functional>
 #include <vector>
+
+#include "Color.hpp"
 #include "Person.hpp"
 
 class Vehicle {
 private:
     int seatCount = 5;
+    Color color = Color::WHITE;
     std::vector<std::reference_wrapper<Person>> passengers;
 
 public:
     // Constructor
     Vehicle(int seatCount);
+
+    Vehicle(int seatCount, Color color);
 
     // Getter
     int getSeatCount();
@@ -23,3 +30,5 @@ public:
     // A little cursed, since the seat numbers update after each exit (due to being vector indixes)
     bool exit(int seatNumber);
 };
+
+#endif //VEHICLE_H

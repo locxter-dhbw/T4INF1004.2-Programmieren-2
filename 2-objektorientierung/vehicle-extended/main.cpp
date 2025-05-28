@@ -3,7 +3,7 @@
 
 int main() {
     Vehicle smart(2);
-    Vehicle schoolBus(20);
+    Vehicle schoolBus(20, Color::GREEN);
     Person bob("Bob", Nationality::DE), alice("Alice", Nationality::EN), jose("Jose", Nationality::IT);
     std::cout << "Smart:" << std::endl;
     std::cout << smart.enter(bob) << std::endl;

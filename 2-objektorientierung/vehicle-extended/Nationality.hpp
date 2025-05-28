@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NATIONALTIY_H
+#define NATIONALTIY_H
 
 enum class Nationality {
     EN,
@@ -6,3 +7,5 @@ enum class Nationality {
     IT,
     ES
 };
+
+#endif //NATIONALTIY_H

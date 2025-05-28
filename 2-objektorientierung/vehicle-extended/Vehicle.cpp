@@ -1,8 +1,13 @@
 #include "Vehicle.hpp"
 
+// Constructors
 Vehicle::Vehicle(int seatCount) {
     if (seatCount < 1) this->seatCount = 1;
     this->seatCount = seatCount;
+}
+
+Vehicle::Vehicle(int seatCount, Color color) : Vehicle(seatCount) {
+    this->color = color;
 }
 
 // Getter
@@ -19,11 +24,11 @@ bool Vehicle::enter(Person &person) {
     if (passengers.size() >= seatCount) return false;
     // New passenger greets all existing ones
     for (auto passenger : passengers) {
-        person.greet(passenger.get());
+        person.greet(passenger.get(), color);
     }
     // All existing passengers greet the new one
     for (auto passenger : passengers) {
-        passenger.get().greet(person);
+        passenger.get().greet(person, color);
     }
     passengers.push_back(std::ref(person));
     return true;

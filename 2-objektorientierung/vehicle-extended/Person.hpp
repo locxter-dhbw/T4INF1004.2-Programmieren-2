@@ -1,6 +1,10 @@
-#pragma once
+#ifndef PERSON_H
+#define PERSON_H
+
 #include <iostream>
 #include <string>
+
+#include "Color.hpp"
 #include "Nationality.hpp"
 
 class Person {
@@ -22,4 +26,8 @@ public:
 
     // Methods
     void greet(Person greetedPerson);
+
+    void greet(Person greetedPerson, Color color);
 };
+
+#endif //PERSON_H
