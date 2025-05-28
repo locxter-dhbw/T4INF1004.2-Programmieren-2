@@ -29,6 +29,8 @@ public:
 
     // A little cursed, since the seat numbers update after each exit (due to being vector indixes)
     bool exit(int seatNumber);
+
+    void greetAll(Person &person);
 };
 
 #endif //VEHICLE_H

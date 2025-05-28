@@ -9,4 +9,6 @@ add_executable(vehicle_extended main.cpp
         Person.cpp
         Person.hpp
         Nationality.hpp
-        Color.hpp)
+        Color.hpp
+        TollStation.cpp
+        TollStation.hpp)

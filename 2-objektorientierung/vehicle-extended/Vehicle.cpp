@@ -27,9 +27,7 @@ bool Vehicle::enter(Person &person) {
         person.greet(passenger.get(), color);
     }
     // All existing passengers greet the new one
-    for (auto passenger : passengers) {
-        passenger.get().greet(person, color);
-    }
+    greetAll(person);
     passengers.push_back(std::ref(person));
     return true;
 }
@@ -40,3 +38,10 @@ bool Vehicle::exit(int seatNumber) {
     passengers.erase(passengers.begin() + seatNumber);
     return true;
 }
+
+void Vehicle::greetAll(Person &person) {
+    for (auto passenger : passengers) {
+        passenger.get().greet(person, color);
+    }
+}
+
