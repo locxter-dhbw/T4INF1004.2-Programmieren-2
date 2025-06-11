@@ -26,7 +26,7 @@ void writeWithoutRAII(const std::string &filename) {
     // dann wird file.close() eventuell vergessen und es kommt zu Lecks!
     if (/*true*/ false) {
         std::cout << "Früher Rücksprung – Datei eventuell nicht geschlossen!\n";
-        return;
+        exit(1);
     }
 
     // Manuelles Schließen notwendig
@@ -70,7 +70,7 @@ void writeWithRAII(const std::string &filename) {
     // Selbst bei einem frühen Return wird die Datei im Destruktor korrekt geschlossen.
     if (true) {
         std::cout << "Früher Rücksprung – kein Problem dank RAII.\n";
-        return;
+        throw std::runtime_error("Irgendein Fehler!");
     }
 }
 
@@ -83,10 +83,19 @@ int main() {
     buffer[2] = 'C';
 
     // Buffer verwenden
+    buffer[0] += 5;
 
     // Wenn hier ein Fehler geschmissen wird, haben wir ein Memory Leak
 
+
+
     delete[] buffer;
+
+
+
+
+
+
 
     // MIT RAII
 
@@ -98,8 +107,12 @@ int main() {
 
     // KOMPLIZIERTERES BEISPIEL
 
-    // writeWithoutRAII("ohne_raii.txt");
-    // writeWithRAII("mit_raii.txt");
+    //writeWithoutRAII("ohne_raii.txt");
+    try {
+        writeWithRAII("mit_raii.txt");
+    } catch (const std::exception& e) {
+        std::cout << "Exception gefangen: " << e.what() << "\n";
+    }
 
     return 0;
 }
